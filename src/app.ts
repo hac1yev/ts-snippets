@@ -585,20 +585,18 @@
 //   .catch(error => console.error("Caught error:", error));
 
 
-type Result<T> = { data: T | null; error: Error | null };
+// type Result<T> = { data: T | null; error: Error | null };
 
-async function fetchData<T>(url: string): Promise<Result<T>> {
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    return { data: data as T, error: null };
-  } catch (error) {
-    return { data: null, error: error as Error }
-  }
-};
+// async function fetchData<T>(url: string): Promise<Result<T>> {
+//   try {
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     return { data: data as T, error: null };
+//   } catch (error) {
+//     return { data: null, error: error as Error }
+//   }
+// };
 
-fetchData<any>('https://my.api.mockaroo.com/home_category.json?key=281cec00')
-  .then(data => console.log(data))
-  .catch(error => console.error("Caught error:", error));
-
-  
+// fetchData<any>('https://my.api.mockaroo.com/home_category.json?key=281cec00')
+//   .then(data => console.log(data))
+//   .catch(error => console.error("Caught error:", error));
