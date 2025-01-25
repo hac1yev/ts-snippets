@@ -2,6 +2,7 @@
 //     name: string;
 // };
 
+
 // type Animal = {
 //     name: string;
 //     age: 13;
@@ -600,3 +601,63 @@
 // fetchData<any>('https://my.api.mockaroo.com/home_category.json?key=281cec00')
 //   .then(data => console.log(data))
 //   .catch(error => console.error("Caught error:", error));
+
+
+// type User = { id: number; name: string; };
+// type OptionalUser = { [P in keyof User]?: User[P] }; // Makes all properties optional
+
+// interface ObjType {
+//   name: string;
+//   age: number;
+//   isMarried: boolean;
+// };
+
+// type MyOmit<T, K extends keyof T> = Omit<T, K> 
+
+// type ModifiedObjType = MyOmit<ObjType, "name" | "age">; 
+
+// const obj: ModifiedObjType = {
+//   isMarried: true
+// }
+
+
+// type MyPick<T, K extends keyof T> = Pick<T,K>;
+
+// type ModifiedObjType = MyPick<ObjType, "name" | "age">
+
+// const obj: ModifiedObjType = {
+//   name: 'Ilkin',
+//   age: 24,
+// };
+
+
+// type CarTypes = "BMW" | "Mercedes" | "Audi" | "Opel" | "Houndai";
+
+// type ModifiedCarTypes = Extract<CarTypes, "BMW" | "Audi">;
+
+// const car: ModifiedCarTypes = "BMW";
+
+
+// interface PlayerObjType {
+//   name: string;
+//   age: number;
+//   isMarried: boolean;
+//   salary: number;
+// };
+
+// type Extra = string | boolean | number;
+
+// type ModifiedPlayerTypes = Partial<Record<keyof PlayerObjType, Extra>>;
+
+// const obj: ModifiedPlayerTypes = { 
+//   age: 23,
+//   isMarried: false,
+//   salary: 23
+// }
+
+
+
+type First<T extends (number | undefined)[]> = T extends [infer F, ...any[]] ? F : never;
+
+const data1: First<[3,2,1]> = 3;
+const data3: First<[undefined]> = undefined;
