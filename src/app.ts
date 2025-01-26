@@ -657,7 +657,50 @@
 
 
 
-type First<T extends (number | undefined)[]> = T extends [infer F, ...any[]] ? F : never;
+// type First<T extends (number | undefined)[]> = T extends [infer F, ...any[]] ? F : never;
 
-const data1: First<[3,2,1]> = 3;
-const data3: First<[undefined]> = undefined;
+// const data1: First<[3,2,1]> = 3;
+// const data3: First<[undefined]> = undefined;
+
+
+
+const data = [
+  {
+    name: 'Ilkin',
+    age: 24,
+    married: false,
+  },
+  {
+    name: 'Fariz',
+    age: 22,
+    married: true,
+  },
+  {
+    name: 'Elvin',
+    age: 24,
+    married: false,
+  },
+  {
+    name: 'Ilkin',
+    age: 24,
+    married: false,
+  },
+  {
+    name: 'Kenan',
+    age: 27,
+    married: true,
+  },
+  {
+    name: 'Ilkin',
+    age: 24,
+    married: false,
+  },
+];
+
+function getAllInfoAndName<T extends { name: string, age: number, married: boolean }, K extends keyof T>(persons: T[], name: T[K]): T[] {
+  const filteredArr = persons.filter((item: T) => item.name === name);
+  
+  return filteredArr;
+};
+
+console.log(getAllInfoAndName(data,'Ilkin'));

@@ -447,12 +447,44 @@
 //   isMarried: false,
 //   salary: 23
 // }
-var Player;
-(function (Player) {
-    Player["name"] = "Kevin De Bruyne";
-    Player[Player["age"] = 34] = "age";
-})(Player || (Player = {}));
+// type First<T extends (number | undefined)[]> = T extends [infer F, ...any[]] ? F : never;
+// const data1: First<[3,2,1]> = 3;
+// const data3: First<[undefined]> = undefined;
+const data = [
+    {
+        name: 'Ilkin',
+        age: 24,
+        married: false,
+    },
+    {
+        name: 'Fariz',
+        age: 22,
+        married: true,
+    },
+    {
+        name: 'Elvin',
+        age: 24,
+        married: false,
+    },
+    {
+        name: 'Ilkin',
+        age: 24,
+        married: false,
+    },
+    {
+        name: 'Kenan',
+        age: 27,
+        married: true,
+    },
+    {
+        name: 'Ilkin',
+        age: 24,
+        married: false,
+    },
+];
+function getAllInfoAndName(persons, name) {
+    const filteredArr = persons.filter((item) => item.name === name);
+    return filteredArr;
+}
 ;
-console.log(Player[34]);
-const player1 = Player.name;
-const player2 = 34;
+console.log(getAllInfoAndName(data, 'Ilkin'));
