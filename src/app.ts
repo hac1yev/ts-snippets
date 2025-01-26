@@ -664,43 +664,53 @@
 
 
 
-const data = [
-  {
-    name: 'Ilkin',
-    age: 24,
-    married: false,
-  },
-  {
-    name: 'Fariz',
-    age: 22,
-    married: true,
-  },
-  {
-    name: 'Elvin',
-    age: 24,
-    married: false,
-  },
-  {
-    name: 'Ilkin',
-    age: 24,
-    married: false,
-  },
-  {
-    name: 'Kenan',
-    age: 27,
-    married: true,
-  },
-  {
-    name: 'Ilkin',
-    age: 24,
-    married: false,
-  },
-];
+// const data = [
+//   {
+//     name: 'Ilkin',
+//     age: 24,
+//     married: false,
+//   },
+//   {
+//     name: 'Fariz',
+//     age: 22,
+//     married: true,
+//   },
+//   {
+//     name: 'Elvin',
+//     age: 24,
+//     married: false,
+//   },
+//   {
+//     name: 'Ilkin',
+//     age: 24,
+//     married: false,
+//   },
+//   {
+//     name: 'Kenan',
+//     age: 27,
+//     married: true,
+//   },
+//   {
+//     name: 'Ilkin',
+//     age: 24,
+//     married: false,
+//   },
+// ];
 
-function getAllInfoAndName<T extends { name: string, age: number, married: boolean }, K extends keyof T>(persons: T[], name: T[K]): T[] {
-  const filteredArr = persons.filter((item: T) => item.name === name);
+// function getAllInfoAndName<T extends { name: string, age: number, married: boolean }, K extends keyof T>(persons: T[], name: T[K]): T[] {
+//   const filteredArr = persons.filter((item: T) => item.name === name);
   
-  return filteredArr;
-};
+//   return filteredArr;
+// };
 
-console.log(getAllInfoAndName(data,'Ilkin'));
+// console.log(getAllInfoAndName(data,'Ilkin'));
+
+
+type PlayerType = Record<"name" | "age" | "club" | "married", string | number | boolean>;
+
+const player: PlayerType = {
+  name: "Ilkin",
+  age: 24,
+  club: "Bayern Munich",
+  married: false
+};
