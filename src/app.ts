@@ -715,30 +715,57 @@
 //   married: false
 // };
 
-type ObjType = {
-  firstname: string;
-  lastname: string;
-  age: number;
-  married: boolean;
+// type ObjType = {
+//   firstname: string;
+//   lastname: string;
+//   age: number;
+//   married: boolean;
+// }
+
+// const updatedObj = {
+//   firstname: 'Ilkin',
+//   lastname: 'Hacizade',
+//   age: 24,
+//   married: false
+// };
+
+// const obj: NewType = {
+//   age: 24,
+//   name: "sda"
+// }
+
+// type Objs = { name: string; age: number; married: boolean } | { name: string; age: number }; 
+
+// type NewType = Pick<Objs, "age" | "name">;
+
+// const obj1: NewType = {
+//   age: 23,
+//   name: "",
+// }
+
+type Cat = {
+  name: string;
+  meow: () => string;
 }
 
-const updatedObj = {
-  firstname: 'Ilkin',
-  lastname: 'Hacizade',
-  age: 24,
-  married: false
-};
-
-const obj: NewType = {
-  age: 24,
-  name: "sda"
+type Dog = {
+  name: string;
+  bark: () => string;
 }
 
-type Objs = { name: string; age: number; married: boolean } | { name: string; age: number }; 
-
-type NewType = Pick<Objs, "age" | "name">;
-
-const obj1: NewType = {
-  age: 23,
-  name: "",
+function makeSound<T extends Cat | Dog>(obj: T) {
+    if("meow" in obj) {
+      console.log(obj["meow"]);
+    }else if("bark" in obj) {
+      console.log(obj["bark"]);
+    }
 }
+
+const obj: Cat  = {
+  name: 'pusuk',
+  meow: function() {
+    return this.name
+  }
+}
+
+makeSound(obj)
