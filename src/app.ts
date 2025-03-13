@@ -706,11 +706,39 @@
 // console.log(getAllInfoAndName(data,'Ilkin'));
 
 
-type PlayerType = Record<"name" | "age" | "club" | "married", string | number | boolean>;
+// type PlayerType = Record<"name" | "age" | "club" | "married", string | number | boolean>;
 
-const player: PlayerType = {
-  name: "Ilkin",
+// const player: PlayerType = {
+//   name: "Ilkin",
+//   age: 24,
+//   club: "Bayern Munich",
+//   married: false
+// };
+
+type ObjType = {
+  firstname: string;
+  lastname: string;
+  age: number;
+  married: boolean;
+}
+
+const updatedObj = {
+  firstname: 'Ilkin',
+  lastname: 'Hacizade',
   age: 24,
-  club: "Bayern Munich",
   married: false
 };
+
+const obj: NewType = {
+  age: 24,
+  name: "sda"
+}
+
+type Objs = { name: string; age: number; married: boolean } | { name: string; age: number }; 
+
+type NewType = Pick<Objs, "age" | "name">;
+
+const obj1: NewType = {
+  age: 23,
+  name: "",
+}
