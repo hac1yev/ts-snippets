@@ -743,29 +743,40 @@
 //   name: "",
 // }
 
+// type Cat = {
+//   name: string;
+//   meow: () => string;
+// }
+
+// type Dog = {
+//   name: string;
+//   bark: () => string;
+// }
+
+// function makeSound<T extends Cat | Dog>(obj: T) {
+//     if("meow" in obj) {
+//       console.log(obj["meow"]);
+//     }else if("bark" in obj) {
+//       console.log(obj["bark"]);
+//     }
+// }
+
+// const obj: Cat  = {
+//   name: 'pusuk',
+//   meow: function() {
+//     return this.name
+//   }
+// }
+
+// makeSound(obj)
+
 type Cat = {
   name: string;
   meow: () => string;
 }
 
-type Dog = {
-  name: string;
-  bark: () => string;
-}
+type NeWType = Cat[keyof Cat];
 
-function makeSound<T extends Cat | Dog>(obj: T) {
-    if("meow" in obj) {
-      console.log(obj["meow"]);
-    }else if("bark" in obj) {
-      console.log(obj["bark"]);
-    }
+const a: NeWType = function() {
+  return "ada"
 }
-
-const obj: Cat  = {
-  name: 'pusuk',
-  meow: function() {
-    return this.name
-  }
-}
-
-makeSound(obj)
